@@ -1,0 +1,31 @@
+p.sinopse{
+    font-size: 36px;
+    text-align: justify;
+    margin-top: 10px;
+}
+h2.nome-nota{
+    margin-bottom: 10px;
+}
+table.detalhes{
+    width: 100%;
+    text-align: left;
+    /* border-collapse faz com que as bordas fiquem juntas como num excel*/
+    border-collapse: collapse;
+}
+table.detalhes{
+    width: 100%;
+    #border: 1px solid gray;
+}
+
+table.detalhes td:nth-child(3) {
+    width: 210px;
+}
+
+table.detalhes td{
+    #border: 1px solid gray;
+    padding: 4px 10px;
+}
+
+img.imagem{
+    width: 405px;
+}
