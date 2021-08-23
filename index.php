@@ -4,7 +4,7 @@
         <title>Listagem de Filmes</title>
         <meta charset="UTF-8">
         <link rel="stylesheet" href="estilo/estilo.css">
-        <link rel="stylesheet" href="estilo/table-listagem.css">
+        <link rel="stylesheet" href="estilo/index-page.css">
     </head>
     <body>
         <?php
@@ -12,10 +12,15 @@
             require_once "includes/funcoes.php";
         ?>
         <div id="body">
-            <h1>Escolha seu filme</h1>
+            <?php include_once "topo.php"; ?>
+            <h1 class='index-titulo'>Escolha seu filme</h1>
             <table class="listagem">
                 <?php
-                    $busca = $banco->query("select * from filmes");
+                $joinQuery = "SELECT filmes.nome, filmes.cod, filmes.capa, generos.genero, produtoras.produtora FROM filmes 
+                              JOIN generos ON filmes.genero = generos.cod
+                              JOIN produtoras ON filmes.produtora = produtoras.cod";
+                $codigo = $_GET['cod'] ?? 0;
+                $busca = $banco->query("$joinQuery");
 
                 if (!$busca)
                 {
@@ -29,9 +34,10 @@
                         {
                             $thumb = thumbnail($registro->capa);
                             //Imagem
-                            echo "<tr><td><img src='$thumb' class='mini'/>";
+                            echo "<tr><td><img alt='Imagem do filme $registro->nome' src='$thumb' class='mini'/>";
                             //Nome
-                            echo "<td><a href='detalhes.php?cod=$registro->cod'>$registro->nome</a></td>";
+                            echo "<td class='titulo-filme'><a href='detalhes.php?cod=$registro->cod'>$registro->nome</a> 
+                            [$registro->genero]<br>$registro->produtora</td>";
                             //admin
                             echo "<td>Adm</td>";
                         }
@@ -40,8 +46,6 @@
                 ?>
             </table>
         </div>
-        <?php
-            $banco->close()
-        ?>
+        <?php include_once "rodape.php"?>
     </body>
 </html>
