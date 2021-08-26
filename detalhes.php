@@ -1,15 +1,17 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-    <title>Título da Página</title>
+    <title>Detalhes do filme</title>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="estilo/estilo.css">
     <link rel="stylesheet" href="estilo/detalhes-page.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
 <body>
 <?php
     require_once "includes/banco.php";
     require_once "includes/funcoes.php";
+    require_once "includes/login.php";
 ?>
 <div id="body">
     <?php
@@ -41,7 +43,7 @@
         }
         ?>
     </table>
-    <a href="index.php"><img src="icones/icoback.png"></a>
+    <?php echo voltar(); ?>
 </div>
 <?php include_once "rodape.php"?>
 </body>

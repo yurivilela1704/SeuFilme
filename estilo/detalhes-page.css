@@ -1,5 +1,5 @@
 p.sinopse{
-    font-size: 20px;
+    font-size: 26px;
     text-align: justify;
     margin-top: 10px;
 }
@@ -17,7 +17,6 @@ table.detalhes{
 }
 table.detalhes{
     width: 100%;
-    #border: 1px solid gray;
 }
 
 table.detalhes td:nth-child(3) {
@@ -25,7 +24,7 @@ table.detalhes td:nth-child(3) {
 }
 
 table.detalhes td{
-    #border: 1px solid gray;
+    /* border: 1px solid gray; */
     padding: 4px 10px;
     vertical-align: top;
 }
